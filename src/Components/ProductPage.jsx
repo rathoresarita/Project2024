@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { callApi } from '../utils/CallApi'
+import { ProductDetails } from './ProductDetails'
 
 
 
@@ -36,8 +37,8 @@ if(!product?.title)
 
                 </div> 
                  {/* mid */}
-                 <div className='col-span-5  bg-pink-400'>
-                    <div></div>
+                 <div className='col-span-5  p-4 rounded bg-white divide-y divide-gray-400 '>
+                    <div className='mb-3'> <ProductDetails product={product} ratings={false}>  </ProductDetails></div>
                     <div></div>
 
                  </div >
