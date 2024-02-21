@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from './Search'
+import { Link} from 'react-router-dom'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 const NavBar = () => {
     return (
@@ -7,7 +8,10 @@ const NavBar = () => {
             <div className='flex bg-amazonclone text-white h-[60px'>
                 {/* left */}
                 <div className='flex itmes-center m-4'>
-                    <img className='h-[35px] w- [100px] m-2' src={"../images/amazon.png"}></img>
+                    <Link to ={'/'}> 
+                    <img className='h-[35px] w-[100px] m-2' src ={'../images/amazon.png'}></img>
+                    </Link>
+                    {/* <img className='h-[35px] w- [100px] m-2' src={"../images/amazon.png"}></img> */}
                     <div className='pr-4 pl-4'>
                         <div className='text-xs xl:text-sm'>Deliver to</div>
                         <div className='text-sm xl:text-base font-bold'>United Kingdom</div>
@@ -30,8 +34,10 @@ const NavBar = () => {
                         <div className='text-xs xl:text-sm'>Returns </div>
                         <div className='text-sm xl:text-base font-bold'>Orders</div>
                     </div>
-                    <div className='flex pr-3 pl-3 '>
-                        <ShoppingCartIcon className='h-[48px]'></ShoppingCartIcon>
+                    <div className='flex pr-3 pl-n3 '>
+                        <Link to={'/checkout'}>                      
+                          <ShoppingCartIcon className='h-[48px]'></ShoppingCartIcon></Link>
+
                         <div className='mt-7 text-xs xl:text-sm font-bold'>cart</div>
                     </div>
                 </div>

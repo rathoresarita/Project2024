@@ -1,7 +1,22 @@
-import React from 'react'
+import {React,useState,useEffect} from 'react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { useActionData } from 'react-router-dom'
+import { callApi, second } from '../utils/CallApi'
 
 const Search = () => {
+    const [suggestions,setSuggestions]=useState(null)
+    const [searchTerm,setSearchTerm]=useState('')
+
+    const getSuggestions=()=>{
+
+    callApi(`dta/suggestions.json`).then((suggestionResults)=>{
+        setSuggestions(suggestionResults)
+    })
+    }
+    useEffect(()=>{
+        getSuggestions()
+    })
+
     return (
         <div className='w-[100%]'>
             <div className='flex items-center h-10 bg-amazonclone-yellow rounded'>
@@ -18,6 +33,9 @@ const Search = () => {
                 <button>
                     <MagnifyingGlassIcon className='h-[27px] m-auto stroke-slate-900'></MagnifyingGlassIcon>
                 </button>
+                {suggestions &&
+                <div></div>
+                }
 
             </div>
         </div>
