@@ -1,16 +1,16 @@
 import React from 'react'
-
-export const ProductDetails = (product) => {
+import ProductBadge  from './ProductBadge'
+ const ProductDetails = (product) => {
   return (
     <div className='mb-1'> 
-    <div className='text-xl xl:text-2xl'> {product.title}</div>
+    <div className='text-xl xl:text-2xl font-medium mb-1'> {product.product.title}</div>
    
-    <div>{product.product.brand}</div>
-    <div>{product.product.avgRating}</div>
-   <div>{product.product.attribute}</div>
+    <div className='text-sm xl:text-base mb-1'>{product.product.avgRating}</div>
+   <div className='text-sm xl:text-base  mb-1'> {product.product.attribute}</div>
 
-   <div>{product.badge}</div>
+   <div > <ProductBadge badge={product.product.badge}></ProductBadge></div>
    <div></div>
     </div>
   )
 }
+export default ProductDetails

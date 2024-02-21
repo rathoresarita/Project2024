@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { callApi } from '../utils/CallApi'
-import { ProductDetails } from './ProductDetails'
+import  ProductDetails from './ProductDetails'
 
 
 
@@ -30,7 +30,7 @@ if(!product?.title)
         product &&
         <div className='h-screen bg-amazonclone-background'>
             <div className='min-w-[1000px] max-w-[1000px] m-auto bg-orange-400'></div>
-            <div className='grid  grid-cols-10'>
+            <div className='grid  grid-cols-10 gap-2'>
                 {/* left */}
                 <div className='col-span-3  p-8 rounded bg-white m-auto'>
                     <img src={`${product.image}`}></img>

@@ -8,3 +8,6 @@ export { default as Search } from "./Search"
 export { default as ProductPage } from "./ProductPage"
 export { default as SearchResult } from "./SearchResult"
 export { default as CheckOut } from "./CheckOut"
+export {default as ProductDetails } from "./ProductDetails"
+export {default as ProductBaadge } from "./ProductBadge"
+export {default as ProductRatings } from './ProductRatings'
