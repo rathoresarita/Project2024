@@ -37,7 +37,7 @@ if(!product?.title)
 
                 </div> 
                  {/* mid */}
-                 <div className='col-span-5  p-4 rounded bg-white divide-y divide-gray-400 '>
+                 <div className="col-span-5  p-4 rounded   bg-white divide-y divide-gray-400 ">
                     <div className='mb-3'> <ProductDetails product={product} ratings={false}>  </ProductDetails></div>
                     <div></div>
 

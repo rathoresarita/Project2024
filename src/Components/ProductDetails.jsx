@@ -10,6 +10,7 @@ export const ProductDetails = (product) => {
    <div>{product.product.attribute}</div>
 
    <div>{product.badge}</div>
+   <div></div>
     </div>
   )
 }
