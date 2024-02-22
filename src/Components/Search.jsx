@@ -6,16 +6,17 @@ import { callApi, second } from '../utils/CallApi'
 const Search = () => {
     const [suggestions,setSuggestions]=useState(null)
     const [searchTerm,setSearchTerm]=useState('')
+    console.log('s',suggestions)
 
     const getSuggestions=()=>{
 
-    callApi(`dta/suggestions.json`).then((suggestionResults)=>{
+    callApi(`data/suggestions.json`).then((suggestionResults)=>{
         setSuggestions(suggestionResults)
     })
     }
     useEffect(()=>{
         getSuggestions()
-    })
+    },[])
 
     return (
         <div className='w-[100%]'>
@@ -29,15 +30,34 @@ const Search = () => {
                     <option>Home</option>
                     <option>Mobiles</option>
                 </select>
-                <input className='flex grow items-center h-[100%] rounded -l text-black' type='text' />
+                <input className='flex grow items-center h-[100%] rounded -l text-black' type='text' value={searchTerm}
+                  onChange={(e)=>setSearchTerm(e.target.value)}/>
                 <button>
                     <MagnifyingGlassIcon className='h-[27px] m-auto stroke-slate-900'></MagnifyingGlassIcon>
                 </button>
-                {suggestions &&
-                <div></div>
-                }
+              
 
             </div>
+
+            {suggestions &&
+                <div className='bg-white text-black w-full z-40 absolute '>
+
+                    {
+                        suggestions.filter((suggestion)=>{const currentSearchTerm=searchTerm.toLocaleLowerCase();
+                            const title =suggestion.title.toLowerCase();
+                            console.log('c',currentSearchTerm)
+                            console.log('t',title)
+                            return(currentSearchTerm
+                                && title.startsWith(currentSearchTerm)&& title!== currentSearchTerm
+                                
+                                )
+                        
+                        })
+                 
+            .slice(0,10).map((suggestion)=>(<div key={suggestion.id}> {suggestion.title}</div>))
+                  }
+                </div>
+                }
         </div>
     )
 }
