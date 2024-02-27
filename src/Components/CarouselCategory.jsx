@@ -8,6 +8,7 @@ import {useNavigate,createSearchParams} from 'react-router-dom'
 
 const CarouselCategory = () => {
 
+    const navigate =useNavigate()
     const searchCategory = (category) => {  navigate(
         {pathname:"search",
     search:`${
@@ -28,33 +29,39 @@ const CarouselCategory = () => {
 
             >
 
-                <SwiperSlide onClick={()=>searchCategory("Deals")}>
+                <SwiperSlide onClick={()=>searchCategory("Deals")} className='cursor-pointer'>
 
                     <img src={'../images/category_0.jpg'}></img>
 
                 </SwiperSlide>
 
-                <SwiperSlide > 
+                <SwiperSlide  onClick={()=>searchCategory("Amazon")}  className='cursor-pointer' > 
 
                     <img src={'../images/category_1.jpg'}></img>
 
                 </SwiperSlide>
 
-                <SwiperSlide>
+                <SwiperSlide onClick={()=>searchCategory("Fashion")}  className='cursor-pointer'>
 
                     <img src={'../images/category_2.jpg'}></img>
 
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide  onClick={()=>searchCategory("Computers")}   className='cursor-pointer'>
 
                     <img src={'../images/category_3.jpg'}></img>
 
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide  onClick={()=>searchCategory("Home")}  className='cursor-pointer'>
 
                     <img src={'../images/category_4.jpg'}></img>
 
                 </SwiperSlide>
+                <SwiperSlide  onClick={()=>searchCategory("Mobiles")}  className='cursor-pointer'>
+
+<img src={'../images/category_5.jpg'}></img>
+
+</SwiperSlide>
+
 
             </Swiper>
 

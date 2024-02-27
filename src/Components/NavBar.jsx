@@ -2,7 +2,14 @@ import React from 'react'
 import Search from './Search'
 import { Link} from 'react-router-dom'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import { useSelector } from 'react-redux' 
+
+//import { Search} from './'
 const NavBar = () => {
+
+    const cart=useSelector((state)=>state.cart.productsNumber)
+
+    console.log('cart',cart)
     return (
         <header className='min-w-w[1000px]'>
             <div className='flex bg-amazonclone text-white h-[60px'>
@@ -34,13 +41,23 @@ const NavBar = () => {
                         <div className='text-xs xl:text-sm'>Returns </div>
                         <div className='text-sm xl:text-base font-bold'>Orders</div>
                     </div>
-                    <div className='flex pr-3 pl-n3 '>
-                        <Link to={'/checkout'}>                      
-                          <ShoppingCartIcon className='h-[48px]'></ShoppingCartIcon></Link>
+                   
+                        <Link to={'/checkout'}>   
+                        <div className='flex pr-3 pl-3 '>                   
+                          <ShoppingCartIcon className='h-[48px]'></ShoppingCartIcon>
+                          <div className='relative'>
+
+                            <div className='absolute right-[9px] font-bold m-2 text-orange-400' >
+
+                                {cart}
+                            </div>
+                          </div>
+                          </div>
+                          </Link>
 
                         <div className='mt-7 text-xs xl:text-sm font-bold'>cart</div>
                     </div>
-                </div>
+               
             </div>
             <div className=' flex  text-white bg-amazonclone-ligt_blue space-x-3 text-xs xl:text-sm p-2 pl-6' >
             <div>Today's Deals</div>
